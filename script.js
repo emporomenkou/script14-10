@@ -100,8 +100,8 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues() {
-  
+function removeFalsyValues(arr) {
+    return arr.filter(Boolean);
 }
 
 /**
@@ -114,8 +114,8 @@ function removeFalsyValues() {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength() {
-  
+function getStringsLength(arr) {
+    return arr.map(str => str.length);
 }
 
 /**
@@ -132,8 +132,14 @@ function getStringsLength() {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage() {
-  
+function getAverage(arr) {
+    if (arr.length === 0) return 0
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    let average = sum / arr.length;
+    return Number(average.toFixed(2));
 }
 
 /**
@@ -146,8 +152,15 @@ function getAverage() {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength() {
-  
+function isSameLength(arr) {
+    if (arr.length === 0) return true
+    const l = arr[0].length
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].length !== l) {
+            return false
+        }
+    }
+    return true
 }
 
 /**
@@ -161,10 +174,13 @@ function isSameLength() {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex() {
-  
+function isValueEqualsIndex(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].length !== l) {
+            return false
+        }
 }
-
+}
 /**
  * Inserts the item into specified array at specified index.
  *
